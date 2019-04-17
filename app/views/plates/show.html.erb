@@ -1,19 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Description:</strong>
+  <strong>Descrição:</strong>
   <%= @plate.description %>
 </p>
 
 <p>
-  <strong>Price:</strong>
+  <strong>Preço:</strong>
   <%= @plate.price %>
 </p>
 
 <p>
-  <strong>Timeprep:</strong>
+  <strong>Tempo de preparo(minutos):</strong>
   <%= @plate.timeprep %>
 </p>
 
-<%= link_to 'Edit', edit_plate_path(@plate) %> |
-<%= link_to 'Back', plates_path %>
+<%= link_to 'Editar', edit_plate_path(@plate) %> |
+<%= link_to 'Voltar', plates_path %>

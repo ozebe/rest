@@ -28,7 +28,7 @@ class PlatesController < ApplicationController
 
     respond_to do |format|
       if @plate.save
-        format.html { redirect_to @plate, notice: 'Plate was successfully created.' }
+        format.html { redirect_to @plate, notice: 'Prato inserido.' }
         format.json { render :show, status: :created, location: @plate }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class PlatesController < ApplicationController
   def update
     respond_to do |format|
       if @plate.update(plate_params)
-        format.html { redirect_to @plate, notice: 'Plate was successfully updated.' }
+        format.html { redirect_to @plate, notice: 'Registro do prato atualizado.' }
         format.json { render :show, status: :ok, location: @plate }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class PlatesController < ApplicationController
   def destroy
     @plate.destroy
     respond_to do |format|
-      format.html { redirect_to plates_url, notice: 'Plate was successfully destroyed.' }
+      format.html { redirect_to plates_url, notice: 'Registro do prato apagado.' }
       format.json { head :no_content }
     end
   end

@@ -1,2 +1,28 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<h1>Pratos cadastrados</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Descrição</th>
+    <th>Preço</th>
+    <th>Tempo de preparo(minutos)</th>
+    <th colspan="3"></th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @plates.each do |plate|%>
+    <tr>
+      <td><%= plate.description %></td>
+      <td><%= plate.price %></td>
+      <td><%= plate.timeprep %></td>
+      <td><%= link_to 'Visualizar', plate %></td>
+      <td><%= link_to 'Editar', edit_plate_path(plate) %></td>
+      <td><%= link_to 'Apagar', plate, method: :delete, data: { confirm: 'Você tem certeza?' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<h3><%= link_to 'Cadastrar novo prato', new_plate_path %></h3>
+<h3><%= link_to 'Cadastrar novo ingrediente', new_ingredient_path %></h3>
