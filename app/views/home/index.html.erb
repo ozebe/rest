@@ -1,4 +1,6 @@
-<h1>Pratos cadastrados</h1>
+<h1> Restaurante Fome Zero</h1>
+<h2> Endereço: Rua Dom Pedro II - 460 - Telefone: 3252-8922</h2></h1>
+<h2>Cardápio</h2>
 
 <table>
   <thead>
@@ -11,7 +13,7 @@
   </thead>
 
   <tbody>
-  <% @plates.each do |plate|%>
+  <% @plates.order("description ").each do |plate|%>
     <tr>
       <td><%= plate.description %></td>
       <td><%= plate.price %></td>
@@ -26,3 +28,8 @@
 
 <h3><%= link_to 'Cadastrar novo prato', new_plate_path %></h3>
 <h3><%= link_to 'Cadastrar novo ingrediente', new_ingredient_path %></h3>
+
+
+
+
+

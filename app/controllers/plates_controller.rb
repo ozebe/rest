@@ -4,7 +4,10 @@ class PlatesController < ApplicationController
   # GET /plates
   # GET /plates.json
   def index
-    @plates = Plate.all
+    @plates = Plate.order(:description)
+
+
+
   end
 
   # GET /plates/1
