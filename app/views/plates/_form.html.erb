@@ -26,12 +26,12 @@
     <%= form.number_field :timeprep %>
   </div>
 
-  <div class="actions">
-    <%= form.submit :'OK'%>
-  </div>
-
   <div>
   <%= form.label :'Ingredientes'%>
   <%= collection_select(:ingredient, :ingredient_ids, Ingredient.all, :id, :description, {}, { :multiple => true } )%>
+  </div>
+
+  <div class="actions">
+    <%= form.submit :'OK'%>
   </div>
 <% end %>
