@@ -4,9 +4,7 @@ class PlatesController < ApplicationController
   # GET /plates
   # GET /plates.json
   def index
-    @plates = Plate.order(:description)
-
-
+   @plates = Plate.order(:description)
 
   end
 
@@ -27,7 +25,15 @@ class PlatesController < ApplicationController
   # POST /plates
   # POST /plates.json
   def create
+
     @plate = Plate.new(plate_params)
+
+    params[:ingredient][:ingredient_ids].each do |ingredient_id|
+      unless ingredient_id.empty?
+        ingredient = Ingredient.find(ingredient_id)
+        @plate.ingredients << ingredient
+      end
+    end
 
     respond_to do |format|
       if @plate.save
@@ -38,11 +44,21 @@ class PlatesController < ApplicationController
         format.json { render json: @plate.errors, status: :unprocessable_entity }
       end
     end
+
+
   end
 
   # PATCH/PUT /plates/1
   # PATCH/PUT /plates/1.json
   def update
+
+    params[:ingredient][:ingredient_ids].each do |ingredient_id|
+      unless ingredient_id.empty?
+        ingredient = Ingredient.find(ingredient_id)
+        @plate.ingredients << ingredient
+      end
+    end
+
     respond_to do |format|
       if @plate.update(plate_params)
         format.html { redirect_to @plate, notice: 'Registro do prato atualizado.' }
@@ -52,6 +68,8 @@ class PlatesController < ApplicationController
         format.json { render json: @plate.errors, status: :unprocessable_entity }
       end
     end
+
+
   end
 
   # DELETE /plates/1
@@ -73,5 +91,9 @@ class PlatesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def plate_params
       params.require(:plate).permit(:description, :price, :timeprep)
+
+
     end
+
+
 end

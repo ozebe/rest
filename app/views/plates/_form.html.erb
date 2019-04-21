@@ -12,21 +12,26 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :description %>
+    <%= form.label :'Descrição' %>
     <%= form.text_field :description %>
   </div>
 
   <div class="field">
-    <%= form.label :price %>
+    <%= form.label :'Preço' %>
     <%= form.number_field :price %>
   </div>
 
   <div class="field">
-    <%= form.label :timeprep %>
+    <%= form.label :'Tempo de preparo(minutos)' %>
     <%= form.number_field :timeprep %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit :'OK'%>
+  </div>
+
+  <div>
+  <%= form.label :'Ingredientes'%>
+  <%= collection_select(:ingredient, :ingredient_ids, Ingredient.all, :id, :description, {}, { :multiple => true } )%>
   </div>
 <% end %>
