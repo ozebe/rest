@@ -51,10 +51,11 @@ class PlatesController < ApplicationController
   # PATCH/PUT /plates/1
   # PATCH/PUT /plates/1.json
   def update
-
+    @plate.ingredients.clear
     params[:ingredient][:ingredient_ids].each do |ingredient_id|
       unless ingredient_id.empty?
         ingredient = Ingredient.find(ingredient_id)
+
         @plate.ingredients << ingredient
       end
     end
